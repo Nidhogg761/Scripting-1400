@@ -69,7 +69,7 @@ public class Operations
             	Console.WriteLine(score + "%, " + "You got a D!");
         	}
             
-            else
+            	else
         	{
             	Console.WriteLine(score + "%, " + "You got a F!");
         	}
