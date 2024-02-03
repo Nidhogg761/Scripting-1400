@@ -1,0 +1,78 @@
+using System;
+
+public class Program 
+{
+
+	public static Operations myOperator;
+    
+
+	public static void Main(string[] args)
+    {
+    
+    	myOperator = new Operations();
+        
+    	Console.WriteLine ("Please enter the current temperature in Celsius:");
+        myOperator.CheckDegrees(15, 30);
+        myOperator.CheckDegrees(27, 30);
+        myOperator.CheckDegrees(32, 30);
+        Console.WriteLine("");
+        Console.WriteLine("Enter your exam scores as percentages: ");
+        myOperator.ExamScore(93);
+        myOperator.ExamScore(87);
+        myOperator.ExamScore(75);
+        myOperator.ExamScore(66);
+        myOperator.ExamScore(58);
+        
+    }
+    
+}
+
+public class Operations 
+{
+
+		public void CheckDegrees (int value, int value2) 
+    	{
+        
+            
+    		if(value < value2) 
+        	{
+        		Console.WriteLine(value + ", " + "Enjoy the pleasant weather!");
+        	}
+        
+        	else 
+        	{
+        		Console.WriteLine(value + ", " + "Stay hydrated and avoid staying in the sun for too long!");
+        	}
+    	}
+    
+    
+    	public void ExamScore(int score)
+    	{   
+        
+        	if (score >= 90 && score <= 100)
+        	{
+            	Console.WriteLine(score + "%, " + "You got a A!");
+        	}
+            
+        	else if (score >= 80 && score < 90)
+        	{
+            	Console.WriteLine(score + "%, " + "You got a B!");
+        	}
+            
+        	else if (score >= 70 && score < 80)
+        	{
+            	Console.WriteLine(score + "%, " + "You got a C!");
+        	}
+            
+        	else if (score >= 60 && score < 70)
+        	{
+            	Console.WriteLine(score + "%, " + "You got a D!");
+        	}
+            
+            else
+        	{
+            	Console.WriteLine(score + "%, " + "You got a F!");
+        	}
+    	}
+    
+}
