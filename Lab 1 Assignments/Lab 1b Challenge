@@ -1,0 +1,123 @@
+using System;
+
+
+public class Program 
+{
+
+	public static Operations myOperator;
+    
+
+	public static void Main(string[] args)
+    {
+    
+    	myOperator = new Operations();
+        
+    	Console.WriteLine ("Please enter the current temperature in Celsius:");
+        myOperator.CheckDegrees(5);
+        myOperator.CheckDegrees(12);
+        myOperator.CheckDegrees(39);
+        
+        Console.WriteLine("");
+        Console.WriteLine("Enter your exam scores as percentages: ");
+        myOperator.ExamScore(95);
+        myOperator.ExamScore(83);
+        myOperator.ExamScore(78);
+        myOperator.ExamScore(64);
+        myOperator.ExamScore(57);
+        
+        Console.WriteLine("");
+        Console.WriteLine("Now, what is your favorite subject?");
+        myOperator.FavSubject(1);
+        myOperator.FavSubject(5);
+        myOperator.FavSubject(3);
+        myOperator.FavSubject(4);
+        myOperator.FavSubject(2);
+        
+    }
+    
+}
+
+public class Operations 
+{
+
+		public void CheckDegrees (int value) 
+    	{
+        
+            
+    		if(value <= 20 && value >= 10) 
+        	{
+        		Console.WriteLine(value + ", " + "Consider bringing a light jacket but enjoy the pleasant warm summer weather!");
+        	}
+            
+            else if (value <= 10 && value > 0)
+            {
+            	Console.WriteLine(value + ", " + "Careful it's cold! Make sure to bring a coat!");
+            }
+        
+        	else 
+        	{
+        		Console.WriteLine(value + ", " + "Remember to stay hydrated and avoid staying in the sun for too long! You don't want to increase your risk of getting heatstroke!");
+        	}
+    	}
+    
+    	public void ExamScore(int score)
+    	{   
+        
+        	if (score >= 90 && score <= 100)
+        	{
+            	Console.WriteLine(score + "%, " + "You got a A!");
+        	}
+            
+        	else if (score >= 80 && score < 90)
+        	{
+            	Console.WriteLine(score + "%, " + "You got a B!");
+        	}
+            
+        	else if (score >= 70 && score < 80)
+        	{
+            	Console.WriteLine(score + "%, " + "You got a C!");
+        	}
+            
+        	else if (score >= 60 && score < 70)
+        	{
+            	Console.WriteLine(score + "%, " + "You got a D!");
+        	}
+            
+            else
+        	{
+            	Console.WriteLine(score + "%, " + "You got a F!");
+        	}
+    	}
+    	
+    
+    	public void FavSubject(int subject)
+    	{   
+        
+        	switch(subject)
+            {
+            
+            	case 1:
+                	Console.WriteLine("Math! The pythagorean theorem won't learn itself!");
+                    break;
+
+                case 2:
+                	Console.WriteLine("Science! Did you know the mitochondria is the powerhouse of the cell?");
+                    break;
+                    
+                case 3:
+                	Console.WriteLine("History! Did you know that despite contrary beliefs, the Earth is round?");
+                    break;
+                
+                case 4:
+                	Console.WriteLine("Physical Education? Like Hanna R. Hall once said, Run Forrest Run!");
+                    break;
+                
+                case 5:
+                	Console.WriteLine("English! Did you know that Shakespeare invented over 1700 of the common words we use today?");
+                    break;
+
+            }
+            
+    	}
+    
+}
