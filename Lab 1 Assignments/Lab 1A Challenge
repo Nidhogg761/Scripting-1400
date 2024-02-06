@@ -1,7 +1,4 @@
 using System;
-
-
-using System;
 using System.Collections.Generic;
 
 
@@ -95,10 +92,44 @@ namespace AssignmentA
         
         
         //Start of third challenge
+        
+        	Console.WriteLine("");
+        	Console.WriteLine("You have $100 to spend at the grocery store, what groceries are you buying? ");
+            Console.WriteLine("");
+
+            List<GroceryList> groceries = new List<GroceryList>();
+
+            GroceryList fruits = new GroceryList("Bananas, apples, grapes, pears, and watermelon", "", "", 27, 0, 0);
+			GroceryList veggies = new GroceryList("Cucumber, Kale, Carrote, Beets, and Onions", "", "", 33, 0, 0);
+			GroceryList grains = new GroceryList("", "Rice, Buns, and Bread", "", 0, 40, 0);
+
+            groceries.Add(fruits);
+            groceries.Add(veggies);
+            groceries.Add(grains);
+
+            foreach (GroceryList grocery in groceries)
+			{
             
-   
-    }
-}
+    			if (!string.IsNullOrEmpty(grocery.fruitList))
+    			{
+        			Console.WriteLine("You spent: $" + $"{grocery.fruitMoney} on {grocery.fruitList}");
+    			}
+                
+   				if (!string.IsNullOrEmpty(grocery.veggieList))
+    			{
+        			Console.WriteLine("You spent: $" + $"{grocery.veggieMoney} on {grocery.veggieList}");
+    			}
+                
+    			if (!string.IsNullOrEmpty(grocery.grainsList))
+    			{
+        			Console.WriteLine("You spent: $" + $"{grocery.grainsMoney} on {grocery.grainsList}");
+   				}
+			}
+
+        
+    	}
+    
+	}
     
     
 	public class GroceryList
@@ -122,9 +153,8 @@ namespace AssignmentA
         	fruitList = fruitItem;
         	veggieList = veggieItem;
         	grainsList = grainsItem;
-            
     	}
 	}
     
-
+}
     
