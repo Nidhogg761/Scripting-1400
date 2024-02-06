@@ -1,0 +1,130 @@
+using System;
+
+
+using System;
+using System.Collections.Generic;
+
+
+namespace AssignmentA
+{
+
+	public class Strength
+	{	
+		public int muscles = 10;
+		public string strengthName = "Base Strength Level: ";
+		public float strengthPower = 50.0f;
+		public int life = 50;
+    	public int powerLevel = 50;
+	}
+    
+	public class Acid
+	{	
+		public float acidPool = 15.0f;
+	}
+    
+	public class Monster
+	{	
+		public int hellDemon = 10;
+	}
+
+	public class Weapon
+	{	
+		public int longSword = 20;
+	}
+    
+    
+
+	public class Program 
+	{
+
+		public static Strength biceps;
+    	public static Acid pool;
+    	public static Monster demon;
+    	public static Weapon sword; 
+    
+
+
+		static void Main()
+    	{
+    
+    
+    		biceps = new Strength();
+        	pool = new Acid();
+        	demon = new Monster();
+        	sword = new Weapon();
+    
+    
+    
+    		biceps.muscles += 40;
+        	biceps.strengthPower -= pool.acidPool;
+        	biceps.life /= demon.hellDemon;
+        	biceps.powerLevel *= sword.longSword;
+    
+
+			string stringValue = "I'm on top of the World!";
+			Console.WriteLine("What do people say when standing on some place high? ");
+        	Console.WriteLine(stringValue);
+        	Console.WriteLine("");
+        
+        
+        	int integerValue = 42;
+        	Console.WriteLine("Type a random number between 1-100: ");
+        	Console.WriteLine(integerValue);
+        	Console.WriteLine("");
+        
+        
+        	float floatValue = 3.14f;
+        	Console.WriteLine("What are the first 3 digits of pi? ");
+        	Console.WriteLine(floatValue);
+        	Console.WriteLine("");
+        
+
+        	bool booleanValue = true;
+        	Console.WriteLine("True or False: Octpuses have 8 tentacles. ");
+        	Console.WriteLine(booleanValue);
+        	Console.WriteLine("");
+        
+        
+        	Console.WriteLine(biceps.strengthName + biceps.muscles);
+        	Console.WriteLine("Oh No! You've fell into a pool of acid! Current strength now stands at: " + biceps.strengthPower);
+        	Console.WriteLine("Is that a paralysis demon? " + "Current strength now stands at: " + biceps.life);
+        	Console.WriteLine("You found a legendary Weapon! " + "Current strength now stands at: " + biceps.powerLevel);
+        	Console.WriteLine("");
+        //End of first 2 challenges
+        
+        
+        
+        //Start of third challenge
+            
+   
+    }
+}
+    
+    
+	public class GroceryList
+	{
+    	public int fruitMoney;
+    	public int grainsMoney;
+    	public int veggieMoney;
+
+    	public string fruitList;
+    	public string veggieList;
+    	public string grainsList;
+
+    	public GroceryList(string fruitItem, string veggieItem, string grainsItem, int fruitMoney, int veggieMoney, int grainsMoney)
+        
+        
+    	{
+        	this.fruitMoney = fruitMoney;
+        	this.grainsMoney = grainsMoney;
+        	this.veggieMoney = veggieMoney;
+
+        	fruitList = fruitItem;
+        	veggieList = veggieItem;
+        	grainsList = grainsItem;
+            
+    	}
+	}
+    
+
+    
