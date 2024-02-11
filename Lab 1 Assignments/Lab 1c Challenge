@@ -1,0 +1,91 @@
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+		
+		
+		
+		
+        int randomNumber = 7;
+		int userGuess;
+		int attempts = 0;
+
+        Console.WriteLine("Welcome to the Number Game! ");
+        Console.WriteLine("");
+        Console.WriteLine("Guess a random number between 1 and 10: ");
+		Console.WriteLine("");
+
+        
+        do
+        {
+
+            // Validate user input
+            while (!int.TryParse(Console.ReadLine(), out userGuess) || userGuess < 1 || userGuess > 10)
+            {
+                Console.Write("Invalid input. Please enter a number between 1 and 10: ");
+            }
+
+            // Increment the attempts counter
+            attempts++;
+
+            // Check if the guess is correct, too high, or too low
+            if (userGuess == randomNumber)
+            {
+				Console.WriteLine("");
+                Console.WriteLine("Congratulations! " + randomNumber + $", was the correct number and you guessed it in {attempts} attempt(s)!");
+				Console.WriteLine("______________________________________________________________");
+				Console.WriteLine("");
+				Console.WriteLine("Now, what are your top three favorite foods? ");
+				Console.WriteLine("");
+				
+				
+				string[] favoriteFoods = new string[3];
+
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.Write($"Enter your {GetNumberWord(i + 1)} favorite food: ");
+                    favoriteFoods[i] = Console.ReadLine();
+                }
+
+                //Console.WriteLine("Your top three favorite foods are:");
+				Console.WriteLine("");
+
+                foreach (var food in favoriteFoods)
+                {
+                    Console.WriteLine($"I love {food} too!");
+                }
+		
+		
+            }
+            else if (userGuess < randomNumber)
+            {
+				Console.WriteLine("");
+                Console.WriteLine("Too low! Try again. Attempt number: " + attempts);
+            }
+            else
+            {
+				Console.WriteLine("");
+                Console.WriteLine("Too high! Try again. Attempt number: " + attempts);
+            }
+            
+		} while (userGuess != randomNumber);
+
+		
+		static string GetNumberWord(int number)
+    	{
+        	switch (number)
+        	{
+            	case 1:
+                	return "first";
+            	case 2:
+                	return "second";
+            	case 3:
+                	return "third";
+            	default:
+                	return "";
+        	}
+    	}
+	}
+}
