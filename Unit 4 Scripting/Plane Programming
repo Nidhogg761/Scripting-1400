@@ -1,0 +1,86 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlaneController : MonoBehaviour
+{
+    public float speed;
+    public float rotationSpeed;
+    public float verticalInput;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        verticalInput = Input.GetAxis("Vertical");
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Rotate(Vector3.right * rotationSpeed * verticalInput * Time.deltaTime);
+        
+        
+    }
+
+
+}
+
+
+
+
+//Propellor Script
+
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PropellerSpin : MonoBehaviour
+{
+    public float propellerSpeed;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Rotate(Vector3.forward, propellerSpeed * Time.deltaTime);
+    }
+}
+
+
+
+//Camera FollowPlane Script
+
+
+
+
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FollowPlane : MonoBehaviour
+{
+    public GameObject plane;
+    private Vector3 offset = new Vector3(80, 12, 3);
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        transform.position = plane.transform.position + offset;
+    }
+}
