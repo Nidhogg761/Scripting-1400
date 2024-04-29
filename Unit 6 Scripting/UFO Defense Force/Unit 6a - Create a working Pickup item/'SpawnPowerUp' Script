@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpawnPowerUp : MonoBehaviour
+{
+    public PowerUp powerUp; 
+
+    private float spawnRangeX = 8.0f;
+
+    private float spawnPosZ = 7.0f;
+
+    private float spawnDelay = 5.0f;
+    private float spawnInterval = 12.0f;
+
+    void Start()
+    {
+        InvokeRepeating("SpawnRandomPowerUp", spawnDelay, spawnInterval);
+    }
+    
+    void SpawnRandomPowerUp()
+    {
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+        Instantiate(powerUp, spawnPos, powerUp.transform.rotation);
+    }
+
+}
