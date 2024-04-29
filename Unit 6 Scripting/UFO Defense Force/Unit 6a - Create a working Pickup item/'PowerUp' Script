@@ -1,0 +1,74 @@
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+
+public class PowerUp : MonoBehaviour
+{
+
+    public float verticalInput;
+    public float multiplier = 2f;
+    public float duration = 4.0f;
+    public float speed = 2.0f; // Speed of the power-up moving down
+    public float spawnInterval = 7.0f; // Interval between power-up spawns
+
+    public GameObject wildfireEffect;
+    public GameObject powerupPrefab;
+    private bool isWildfireActive = false;
+
+    void Update()
+    {
+        transform.Translate(Vector3.back * verticalInput * Time.deltaTime * speed);
+    }
+
+    private Vector3 GenerateSpawnPosition()
+    {
+        // Generate a random spawn position within a range on the X and Z axes
+        float spawnPosX = Random.Range(-10.0f, 10.0f); 
+        float spawnPosZ = Random.Range(-10.0f, 10.0f); 
+
+        return new Vector3(spawnPosX, 0, spawnPosZ); 
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            StartCoroutine ( Pickup(other) );
+            Debug.Log("PowerUp Collected");
+        }
+    }
+
+    IEnumerator Pickup(Collider player)
+    {
+        Instantiate(wildfireEffect, transform.position, transform.rotation);
+        if (!isWildfireActive)
+        {
+            // Instantiate wildfire effect if it's not already active
+            Instantiate(wildfireEffect, player.transform.position, Quaternion.identity);
+            isWildfireActive = true;
+        }
+
+
+        player.transform.localScale *= multiplier;
+
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+
+        yield return new WaitForSeconds (duration);
+
+        player.transform.localScale /= multiplier;
+
+        if (isWildfireActive)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Wildfire"));
+            isWildfireActive = false;
+        }
+
+        Destroy(gameObject);
+    }
+
+}
+
+    
